@@ -1,41 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { Nav } from "./UI/nav";
+// import Paginating from "./UI/Paginating";
+import Posts from "./UI/Post";
+import { Nav } from "./UI/Nav";
 
 function HomePage() {
-  const [posts, setPosts] = useState(null);
-  let url = "https://jsonplaceholder.typicode.com/todos";
-  useEffect(() => {
-    fetch(url)
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error("Request fail " + response.status);
-        }
-      })
-      .then((data) => {
-        setPosts(data);
-      });
-  }, []);
+  const displayRed = false;
+  const displayGreen = true;
+
   return (
     <>
       <Nav />
-      <article className="flex justify-center">
-        <div className="flex flex-wrap justify-evenly w-[80%] shadow">
-          {posts?.map((post) => (
-            <li
-              key={post.id}
-              className={
-                post?.completed === true
-                  ? "mt-4 p-3 list-none bg-green-500"
-                  : "mt-4 p-3 list-none bg-red-500"
-              }
-            >
-              {post?.title}
-            </li>
-          ))}
-        </div>
-      </article>
+      <Posts displayRed={displayRed} displayGreen={displayGreen} />
     </>
   );
 }

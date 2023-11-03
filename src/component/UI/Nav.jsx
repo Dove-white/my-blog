@@ -1,14 +1,18 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
 export const Nav = () => {
   return (
-    <ul>
-        <li className='flex gap-2 text-blue-900'>
-            <Link to="/" >Home</Link>
-            <Link to="/message" >Message</Link>
-            <Link to="/contact" >Contact</Link>
-        </li>
+    <ul className="flex gap-2 text-blue-900">
+      <li>
+        <Link to="/">Home</Link>
+      </li>
+      <li>
+        <Link to="/message">Completed</Link>
+      </li>
+      <li>
+        <Link to="/contact">Not Completed</Link>
+      </li>
     </ul>
-  )
-}
+  );
+};
